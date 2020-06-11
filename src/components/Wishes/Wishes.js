@@ -32,9 +32,35 @@ function FadeInSection(props) {
 }
 
 export default class Wishes extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      activate: false,
+    };
+  }
+
+  onClickButton = () => {
+    this.setState({
+      activate: true,
+    });
+
+    setTimeout(() => {
+      this.setState({
+        activate: false,
+      });
+    }, 20000);
+  };
+
   render() {
     return (
       <div className="wishesContainer">
+        {this.state.activate === true && (
+          <div class="pyro">
+            <div class="before"></div>
+            <div class="after"></div>
+          </div>
+        )}
         {items.map((data, index) => (
           <FadeInSection key={index}>
             {data.switch ? (
@@ -50,6 +76,12 @@ export default class Wishes extends Component {
             )}
           </FadeInSection>
         ))}
+        <div className="buttonContainer">
+          <div className="yes" onClick={() => this.onClickButton()}>
+            YES
+          </div>
+          <div className="no">NO</div>
+        </div>
       </div>
     );
   }
