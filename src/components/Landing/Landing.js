@@ -18,15 +18,23 @@ export default class Landing extends Component {
           />
           {items.map((data, index) => {
             return (
-              <div className="itemContainer">
+              <div className="itemContainer reveal">
                 {data.switch ? (
                   <div className="item" key={index}>
                     <div className="description">{data.description}</div>
-                    <div className="image">{data.picture}</div>
+                    <div className="imageContainer">
+                      <div className="imageBox">
+                        <img src={data.picture} className="image" alt="" />
+                      </div>
+                    </div>
                   </div>
                 ) : (
                   <div className="item" key={index}>
-                    <div className="image">{data.picture}</div>
+                    <div className="imageContainer">
+                      <div className="imageBox">
+                        <img src={data.picture} className="image" alt="" />
+                      </div>
+                    </div>
                     <div className="description">{data.description}</div>
                   </div>
                 )}
