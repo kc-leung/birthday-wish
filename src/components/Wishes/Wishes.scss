@@ -1,3 +1,12 @@
+:root {
+  --backgroundColor: rgba(246, 241, 209);
+  --colorShadeA: rgb(106, 163, 137);
+  --colorShadeB: rgb(121, 186, 156);
+  --colorShadeC: rgb(150, 232, 195);
+  --colorShadeD: rgb(187, 232, 211);
+  --colorShadeE: rgb(205, 255, 232);
+}
+
 .wishesContainer {
   position: relative;
   padding: 4rem;
@@ -17,12 +26,143 @@
     visibility: visible;
   }
 
-  .item {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  .title {
+    display: flex;
+    flex-direction: column;
 
-    .image {
-      height: 5rem;
+    span {
+      margin-bottom: 1rem;
+      font-size: 3rem;
+      font-weight: 700;
+    }
+  }
+
+  .buttonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+
+    button {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      outline: none;
+      border: 0;
+      vertical-align: middle;
+      text-decoration: none;
+      font-size: 1.5rem;
+      color: var(--colorShadeA);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-family: inherit;
+    }
+
+    button.big-button {
+      margin: 0 2rem;
+      padding: 1em 2em;
+      border: 2px solid var(--colorShadeA);
+      border-radius: 1em;
+      background: var(--colorShadeE);
+      transform-style: preserve-3d;
+      transition: all 175ms cubic-bezier(0, 0, 1, 1);
+    }
+
+    .big-button::before {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--colorShadeC);
+      border-radius: inherit;
+      box-shadow: 0 0 0 2px var(--colorShadeB), 0 0.75em 0 0 var(--colorShadeA);
+      transform: translate3d(0, 0.75em, -1em);
+      transition: all 175ms cubic-bezier(0, 0, 1, 1);
+    }
+
+    button.big-button:hover {
+      background: var(--colorShadeD);
+      transform: translate(0, 0.375em);
+    }
+
+    button.big-button:hover::before {
+      transform: translate3d(0, 0.75em, -1em);
+    }
+
+    button.big-button:active {
+      transform: translate(0em, 0.75em);
+    }
+
+    button.big-button:active::before {
+      transform: translate3d(0, 0, -1em);
+
+      box-shadow: 0 0 0 2px var(--colorShadeB), 0 0.25em 0 0 var(--colorShadeB);
+    }
+  }
+
+  .contentContainer {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .imageBox {
+      margin-right: 4rem;
+      width: 20rem;
+      height: 25rem;
+      box-sizing: border-box;
+      padding: 15px;
+      position: relative;
+      overflow: hidden;
+
+      .image {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .imageBox::before {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 150%;
+      background: repeating-linear-gradient(
+        white 0%,
+        white 7.5px,
+        hotpink 7.5px,
+        hotpink 15px,
+        white 15px,
+        white 22.5px,
+        hotpink 22.5px,
+        hotpink 30px
+      );
+      transform: translateX(-20%) translateY(-20%) rotate(-45deg);
+      animation: animate 20s linear infinite;
+    }
+
+    .imageBox .image {
+      position: relative;
+      background-color: white;
+      flex-direction: column;
+      box-sizing: border-box;
+      text-align: center;
+      font-family: sans-serif;
+      z-index: 2;
+    }
+
+    .imageBox,
+    .imageBox .image {
+      border-radius: 10px;
+    }
+
+    .description {
+      width: 50%;
+      font-size: 2rem;
     }
   }
 

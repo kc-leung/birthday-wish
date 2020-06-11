@@ -3,6 +3,10 @@ import './Footer.scss';
 
 export default class Footer extends Component {
   render() {
-    return <div className="footerContainer">copyright.</div>;
+    return (
+      <div className="footerContainer">
+        © 2020 KC Leung. All rights reserved.
+      </div>
+    );
   }
 }
