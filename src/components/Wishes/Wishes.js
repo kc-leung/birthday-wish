@@ -79,7 +79,7 @@ export default class Wishes extends Component {
         <FadeInSection>
           <div className="title">
             <span>
-              I want to take this opportunity to propose to you officially!
+              I want to take this opportunity to ask you a question...
             </span>
             <span>Would you like to be my Girlfriend???</span>
           </div>
@@ -106,8 +106,9 @@ export default class Wishes extends Component {
               <img src={collageImg} className="image" alt="" />
             </div>
             <div className="description">
-              Lorem Ipsum has been the industry standard dummy text ever since
-              the 1500s
+              I want to spend the rest of my life with you because each day
+              beside you is a day of joy and excitement. Thank you for being
+              part of my life Erika 😊 I Love You 😍
             </div>
           </div>
         )}

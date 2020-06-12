@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { items } from '../../data/constant';
-import video from '../../assets/test.mp4';
+import video from '../../assets/erika.mp4';
 
 import './Landing.scss';
 
